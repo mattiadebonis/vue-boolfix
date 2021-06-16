@@ -14,16 +14,35 @@
             v-else-if="item.original_language == 'en'"
         >
         <p v-else>{{item.original_language}}</p>
-        <p>{{item.vote_average}}</p>
+        <p>{{getRating(item.vote_average)}}</p>
+        
+        <img 
+            v-for= "(item, index) in ratingItem"
+            :key= "index"
+            src="../assets/images/star-solid.svg"
+            alt=""
+        >
+        
     </div>
 </template>
 
 <script>
     export default{
         name: "Card",
+        //components
         props : {
             "item": Object
         },
+
+        //data 
+        data: function(){
+            return{
+                i : 0,
+                ratingItem: []
+            }
+        },
+
+        //function
         methods:{
             componeURL : function(endUrl){
                 //compone poster url
@@ -31,6 +50,15 @@
                 if (endUrl != null){
                     return  startUrl + endUrl; 
                 }
+            },
+            getRating : function(ratingTen){
+                this.ratingItem = []
+                var ratingFive
+                ratingFive = (ratingTen/2).toFixed(0);
+                for(var i=0; i<ratingFive; i++){
+                    this.ratingItem.push("");
+                }
+                console.log(this.ratingItem)
             }
         }
 
