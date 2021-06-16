@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img :src="componeURL(item.poster_path)" alt="">
         <h3>{{item.title? item.title : item.name}}</h3>
         <h4>{{item.original_title ? item.original_title : item.original_name}}</h4>
         <img 
@@ -22,7 +23,17 @@
         name: "Card",
         props : {
             "item": Object
+        },
+        methods:{
+            componeURL : function(endUrl){
+                //compone poster url
+                const startUrl = "https://image.tmdb.org/t/p/w1280/"; 
+                if (endUrl != null){
+                    return  startUrl + endUrl; 
+                }
+            }
         }
+
     }
     
 </script>
