@@ -1,11 +1,12 @@
 <template>
     <main>
+        <!-- movies -->
         <section 
             class="movies-container" 
             v-if="movieCards.length > 0"
         >
             <h2>Film</h2>
-            <div class="movies">
+            <div class="card">
                 <Card 
                     v-for = "card in movieCards"
                     :key = "card.id"
@@ -13,12 +14,14 @@
                 />
             </div>
         </section>
+        
+        <!-- series -->
         <section 
-            class="movies-container" 
+            class="series-container" 
             v-if="serieCards.length > 0"
         >
             <h2>Serie</h2>
-            <div class="movies">
+            <div class="card">
                 <Card 
                     v-for = "card in serieCards"
                     :key = "card.id"

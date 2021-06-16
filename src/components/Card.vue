@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h3>{{item.title}}</h3>
-        <h4>{{item.original_title}}</h4>
+        <h3>{{item.title? item.title : item.name}}</h3>
+        <h4>{{item.original_title ? item.original_title : item.original_name}}</h4>
         <img 
             src="../assets/images/it.png" 
             alt=""
