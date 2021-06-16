@@ -3,7 +3,8 @@
 
     <!-- import searched film -->
     <Header @performSearch="search"/>
-    <Main />
+    
+    <Main :card="movies"/>
   </div>
 </template>
 
@@ -23,8 +24,8 @@
     //data
     data: function(){
       return{
-        apiMovieUrl: "https://api.themoviedb.org/3/movie/550?api_key=",
-        apyKey : "519ec88cceb49e7cc957ef9c3c309ffd",
+        apiMovieUrl: "https://api.themoviedb.org/3/search/movie",
+        apiKey : "519ec88cceb49e7cc957ef9c3c309ffd",
         movies : []
       }
       
@@ -33,6 +34,7 @@
     //function
     methods :{
       search: function(text){
+        //extract and save into an array the searched movies
         axios
           .get(this.apiMovieUrl,
             {
@@ -45,8 +47,8 @@
           )
           .then(
             (res) =>{
-              console.log(res);
-            }
+              this.movies = res.data.results;
+          }
           )
           .catch(
             (err) =>{
