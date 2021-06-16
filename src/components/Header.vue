@@ -17,7 +17,7 @@
         name: "Header",  
         data: function(){
             return{
-                searchText : String
+                searchText : ""
             }
         },
         

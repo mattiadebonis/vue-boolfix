@@ -2,7 +2,7 @@
     <main>
         <section 
             class="movies-container" 
-            v-if="cards.lenght > 0"
+            v-if="cards.length > 0"
         >
             <h2>Film</h2>
             <div class="movies">
@@ -13,6 +13,7 @@
                 />
             </div>
         </section>
+        <h1 v-else>Nessun elemento trovato</h1>
     </main>
 
 </template>

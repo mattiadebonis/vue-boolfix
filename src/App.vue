@@ -4,7 +4,7 @@
     <!-- import searched film -->
     <Header @performSearch="search"/>
     
-    <Main :card="movies"/>
+    <Main :cards="movies"/>
   </div>
 </template>
 
