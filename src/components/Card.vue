@@ -8,15 +8,11 @@
             v-if="item.original_language == 'it'"
         >
         <img 
-            src="../assets/images/eng.png" 
+            src="../assets/images/en.png" 
             alt=""
-            v-else-if="item.original_language == 'eng'"
+            v-else-if="item.original_language == 'en'"
         >
         <p v-else>{{item.original_language}}</p>
-        <img src="" alt="">
-        <p></p>
-
-        <p>{{item.original_language}}</p>
         <p>{{item.vote_average}}</p>
     </div>
 </template>
@@ -33,4 +29,7 @@
 
 
 <style scoped>
+img{
+    width: 20px;
+}
 </style>

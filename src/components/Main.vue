@@ -2,18 +2,31 @@
     <main>
         <section 
             class="movies-container" 
-            v-if="cards.length > 0"
+            v-if="movieCards.length > 0"
         >
             <h2>Film</h2>
             <div class="movies">
                 <Card 
-                    v-for = "card in cards"
+                    v-for = "card in movieCards"
                     :key = "card.id"
                     :item = "card"
                 />
             </div>
         </section>
-        <h1 v-else>Nessun elemento trovato</h1>
+        <section 
+            class="movies-container" 
+            v-if="serieCards.length > 0"
+        >
+            <h2>Serie</h2>
+            <div class="movies">
+                <Card 
+                    v-for = "card in serieCards"
+                    :key = "card.id"
+                    :item = "card"
+                />
+            </div>
+        </section>
+        <h1 v-else>Nessun elemento</h1>
     </main>
 
 </template>
@@ -26,7 +39,8 @@
             Card : Card
         },
         props:{
-            "cards": Array
+            "movieCards": Array,
+            "serieCards": Array
         }
         
     }
