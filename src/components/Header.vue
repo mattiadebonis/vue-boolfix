@@ -46,6 +46,9 @@
 
 
 <style lang="scss" scoped>
+@import "../assets/style/variable.scss";
+
+
     header{
         width: 100vw;
         height: 70px;
@@ -71,8 +74,13 @@
                 a{
                     color:white;
                     text-decoration:none;
-                    font-size: 16px;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    &:hover{
+                        color:lightgray;
+                    }
                 }
+                
             }
         }
 

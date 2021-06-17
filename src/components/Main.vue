@@ -4,7 +4,7 @@
         <a href=""><h2>Film ></h2></a>
         <section 
             class="movies-container" 
-            v-if="movieCards.length > 0"
+            v-if="movieCards.length > 0 && searchedItem != ''"
         >
             <div class="card">
                 <Card 
@@ -14,7 +14,7 @@
                 />
             </div>
         </section>
-        <p class="no_found" v-else>Nessun film trovato</p>
+        <p class="no_found" v-else><i class="fas fa-film"></i> Nessun film trovato</p>
         <!-- /movies -->
 
 
@@ -22,7 +22,7 @@
         <a href=""><h2>Serie ></h2></a>
         <section 
             class="series-container" 
-            v-if="serieCards.length > 0"
+            v-if="serieCards.length > 0 && searchedItem != ''"
         >
             <div class="card">
                 
@@ -33,7 +33,7 @@
                     />     
             </div>
         </section>
-        <p class="no_found" v-else>Nessuna serie trovata</p>
+        <p class="no_found" v-else><i class="fas fa-tv"></i> Nessuna serie trovata</p>
         <!-- /series -->
     </main>
 </template>
@@ -47,23 +47,25 @@
         },
         props:{
             "movieCards": Array,
-            "serieCards": Array
+            "serieCards": Array,
+            "searchedItem":String
         }
     }
 </script>
 
 
 <style lang="scss" scoped>
-
+@import "../assets/style/variable.scss";
 main{
     width: 100%;
     margin-top: 60px;
+
     h2{
         color:white;
         text-transform: uppercase;
         margin: 10px;
         font-size: 14px;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     section{ 
@@ -72,19 +74,15 @@ main{
         .card{
            display: flex;
             div{
-                width: calc(100vw/8);
+                width: calc(100vw/6);
             }       
         }
     }    
+
     .no_found{
         margin: 30px;
-        color:lightgray;
-        font-size: 12px;
+        color: gray;
+        font-size: 24px;
     }
 }
-
-
-
-
-
 </style>
